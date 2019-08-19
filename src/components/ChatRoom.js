@@ -2,6 +2,9 @@ import React, { Component } from "react"
 import ChatBox from "./ChatBox"
 import SendPanel from "./SendPanel"
 import { connect } from "react-redux"
+import { sendMessage } from "../actions/messageActions"
+import { firestoreConnect } from "react-redux-firebase"
+import { compose } from "redux"
 
 class ChatRoom extends Component {
 
@@ -22,7 +25,7 @@ class ChatRoom extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    chatBoxes: state.message.chatBoxes
+    chatBoxes: state.firestore.ordered.conversations || state.message.chatBoxes
   }
 }
 
@@ -34,4 +37,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChatRoom)
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect([
+    {collection: "conversations", orderBy: ["timeStamp", "asc"]}
+  ])
+)(ChatRoom)
