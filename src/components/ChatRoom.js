@@ -16,7 +16,9 @@ class ChatRoom extends Component {
     })
     return (
       <div className="ChatRoom">
-        {chatBoxes}
+        <div className="MessageArea">
+          {chatBoxes}
+        </div>
         <SendPanel sendMessage={this.props.sendMessage} name={this.props.location.state.name[0]}/>
       </div>
     )
