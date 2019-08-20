@@ -18,7 +18,7 @@ class Welcome extends Component {
         <h3>Enter your name:</h3>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="name"/>
-          <button id="sendButton">Enter</button>
+          <button>Enter</button>
         </form>
       </div>
     )
