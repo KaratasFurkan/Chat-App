@@ -1,4 +1,4 @@
-#A chat app project with React, Redux and Firebase Firestore
+# A chat app project with React, Redux and Firebase Firestore
 
 ![alt text](./welcome.png "Welcome Screen")
 ![alt text](./chatroom.png "ChatRoom")
